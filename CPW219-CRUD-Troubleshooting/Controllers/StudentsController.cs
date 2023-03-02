@@ -1,5 +1,6 @@
 ﻿using CPW219_CRUD_Troubleshooting.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CPW219_CRUD_Troubleshooting.Controllers
 {
@@ -12,12 +13,14 @@ namespace CPW219_CRUD_Troubleshooting.Controllers
             context = dbContext;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             List<Student> products = StudentDb.GetStudents(context);
             return View(products);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -37,6 +40,7 @@ namespace CPW219_CRUD_Troubleshooting.Controllers
             return View(p);
         }
 
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             //get the product by id
@@ -59,6 +63,7 @@ namespace CPW219_CRUD_Troubleshooting.Controllers
             return View(p);
         }
 
+        [HttpGet]
         public IActionResult Delete(int id)
         {
             Student p = StudentDb.GetStudent(context, id);
