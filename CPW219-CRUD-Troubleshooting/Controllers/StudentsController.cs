@@ -33,11 +33,11 @@ namespace CPW219_CRUD_Troubleshooting.Controllers
             {
                 StudentDb.Add(p, context); 
                 ViewData["Message"] = $"{p.Name} was added!";
-                return View(p); 
+                return View(); 
             }
 
             //Show web page with errors
-            return View(p);
+            return View();
         }
 
         [HttpGet]
@@ -56,11 +56,11 @@ namespace CPW219_CRUD_Troubleshooting.Controllers
             if (ModelState.IsValid)
             {
                 StudentDb.Update(context, p);
-                ViewData["Message"] = "Product Updated!";
-                return View(p);
+                ViewData["Message"] = $"{p.Name} Updated!";
+                return View();
             }
             //return view with errors
-            return View(p);
+            return View();
         }
 
         [HttpGet]
