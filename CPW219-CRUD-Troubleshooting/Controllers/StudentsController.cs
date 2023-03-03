@@ -31,9 +31,9 @@ namespace CPW219_CRUD_Troubleshooting.Controllers
         {
             if (ModelState.IsValid)
             {
-                StudentDb.Add(p, context);
+                StudentDb.Add(p, context); 
                 ViewData["Message"] = $"{p.Name} was added!";
-                return View();
+                return View(p); 
             }
 
             //Show web page with errors
@@ -47,7 +47,7 @@ namespace CPW219_CRUD_Troubleshooting.Controllers
             Student p = StudentDb.GetStudent(context, id);
 
             //show it on web page
-            return View();
+            return View(p);
         }
 
         [HttpPost]
@@ -79,6 +79,12 @@ namespace CPW219_CRUD_Troubleshooting.Controllers
             StudentDb.Delete(context, p);
 
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Details(int id) {
+            Student p = StudentDb.GetStudent(context, id);
+            return View(p);
         }
     }
 }
