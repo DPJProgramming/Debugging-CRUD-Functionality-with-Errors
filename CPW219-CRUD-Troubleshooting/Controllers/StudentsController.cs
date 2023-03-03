@@ -73,7 +73,7 @@ namespace CPW219_CRUD_Troubleshooting.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirm(int id)
         {
-            //Get Product from database
+            //Get Student from database
             Student p = StudentDb.GetStudent(context, id);
 
             StudentDb.Delete(context, p);
