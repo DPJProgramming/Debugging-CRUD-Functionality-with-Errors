@@ -7,6 +7,13 @@
 <h1>Edit</h1>
 
 <h4>Student</h4>
+
+@if (ViewData["Message"] != null) {
+    <div class="alert alert-success">
+        @ViewData["Message"]
+    </div>
+}
+
 <hr />
 <div class="row">
     <div class="col-md-4">
